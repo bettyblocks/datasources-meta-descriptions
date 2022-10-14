@@ -1,0 +1,832 @@
+components:
+  schemas:
+    DocumentActivityHistory:
+      properties:
+        alias:
+          type: string
+        count:
+          type: integer
+        description:
+          type: string
+    DocumentHistory:
+      properties:
+        activity:
+          type: string
+        activity_code:
+          type: string
+        activity_date:
+          format: date-time
+          type: string
+        application_name:
+          type: string
+        comments:
+          type: string
+        document_number:
+          type: integer
+        duration:
+          type: integer
+        has_journal:
+          type: boolean
+        id:
+          type: string
+        location:
+          type: string
+        pages_printed:
+          type: integer
+        user:
+          type: string
+        user_fullname:
+          type: string
+        version:
+          type: integer
+    DocumentNVP:
+      properties: {}
+    DocumentUserHistory:
+      properties:
+        activity_count:
+          type: integer
+        email:
+          type: string
+        full_name:
+          type: string
+        id:
+          type: string
+    Documents:
+      properties:
+        author:
+          type: string
+        author_description:
+          type: string
+        checksum:
+          type: string
+        class:
+          type: string
+        class_description:
+          type: string
+        content_type:
+          type: string
+        create_date:
+          format: date-time
+          type: string
+        create_profile_date:
+          type: string
+        database:
+          type: string
+        default_security:
+          type: string
+        document_number:
+          type: integer
+        edit_date:
+          format: date-time
+          type: string
+        edit_profile_date:
+          format: date-time
+          type: string
+        extension:
+          type: string
+        file_create_date:
+          format: date-time
+          type: string
+        file_edit_date:
+          format: date-time
+          type: string
+        id:
+          type: string
+        is_checked_out:
+          type: boolean
+        is_declared:
+          type: boolean
+        is_external:
+          type: boolean
+        is_external_as_normal:
+          type: boolean
+        is_hipaa:
+          type: boolean
+        is_in_use:
+          type: boolean
+        is_restorable:
+          type: boolean
+        iwl:
+          type: string
+        last_user:
+          type: string
+        last_user_description:
+          type: string
+        name:
+          type: string
+        operation:
+          type: string
+        operator_description:
+          type: string
+        retain_days:
+          type: integer
+        size:
+          type: integer
+        subclass_description:
+          type: string
+        type:
+          type: string
+        type_description:
+          type: string
+        version:
+          type: integer
+        wopi_file_size_warning:
+          type: boolean
+        workspace_id:
+          type: string
+        workspace_name:
+          type: string
+        wstype:
+          type: string
+    FolderChildren:
+      properties:
+        database:
+          type: string
+        default_security:
+          type: string
+        edit_date:
+          format: date-time
+          type: string
+        folder_type:
+          type: string
+        has_documents:
+          type: boolean
+        has_subfolders:
+          type: boolean
+        id:
+          type: string
+        inherited_default_security:
+          type: string
+        is_container_saved_search:
+          type: boolean
+        is_content_saved_search:
+          type: boolean
+        is_external:
+          type: boolean
+        is_external_as_normal:
+          type: boolean
+        name:
+          type: string
+        owner:
+          type: string
+        owner_description:
+          type: string
+        parent_id:
+          type: string
+        view_type:
+          type: string
+        workspace_id:
+          type: string
+        workspace_name:
+          type: string
+        wstype:
+          type: string
+    Folders:
+      properties:
+        database:
+          type: string
+        default_security:
+          type: string
+        edit_date:
+          format: date-time
+          type: string
+        folder_type:
+          type: string
+        has_documents:
+          type: boolean
+        has_subfolders:
+          type: boolean
+        id:
+          type: string
+        inherited_default_security:
+          type: string
+        is_container_saved_search:
+          type: boolean
+        is_content_saved_search:
+          type: boolean
+        is_external:
+          type: boolean
+        is_external_as_normal:
+          type: boolean
+        name:
+          type: string
+        owner:
+          type: string
+        owner_description:
+          type: string
+        parent_id:
+          type: string
+        view_type:
+          type: string
+        workspace_id:
+          type: string
+        workspace_name:
+          type: string
+        wstype:
+          type: string
+    LibraryCheckedOutDocuments:
+      properties: {}
+    Workspaces:
+      properties:
+        create_profile_date:
+          format: date-time
+          type: string
+        database:
+          type: string
+        default_security:
+          type: string
+        document_number:
+          type: integer
+        edit_date:
+          format: date-time
+          type: string
+        has_subfolders:
+          type: boolean
+        id:
+          type: string
+        is_declared:
+          type: boolean
+        is_external:
+          type: boolean
+        is_external_as_normal:
+          type: boolean
+        is_hipaa:
+          type: boolean
+        iwl:
+          type: string
+        name:
+          type: string
+        owner:
+          type: string
+        owner_description:
+          type: string
+        retain_days:
+          type: integer
+        version:
+          type: boolean
+        wstype:
+          type: string
+info:
+  description: test
+  title: test
+  version: 0.1.0
+openapi: 3.0.0
+paths:
+  /documentactivityhistory:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/DocumentActivityHistory'
+                type: array
+          description: ''
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentActivityHistory'
+          description: ''
+  /documentactivityhistory/{id}:
+    get:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentActivityHistory'
+          description: ''
+    patch:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentActivityHistory'
+          description: ''
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentActivityHistory'
+          description: ''
+  /documenthistory:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/DocumentHistory'
+                type: array
+          description: ''
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentHistory'
+          description: ''
+  /documenthistory/{id}:
+    get:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentHistory'
+          description: ''
+    patch:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentHistory'
+          description: ''
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentHistory'
+          description: ''
+  /documentnvp:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/DocumentNVP'
+                type: array
+          description: ''
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentNVP'
+          description: ''
+  /documentnvp/{id}:
+    get:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentNVP'
+          description: ''
+    patch:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentNVP'
+          description: ''
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentNVP'
+          description: ''
+  /documents:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Documents'
+                type: array
+          description: ''
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Documents'
+          description: ''
+  /documents/{id}:
+    get:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Documents'
+          description: ''
+    patch:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Documents'
+          description: ''
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Documents'
+          description: ''
+  /documentuserhistory:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/DocumentUserHistory'
+                type: array
+          description: ''
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentUserHistory'
+          description: ''
+  /documentuserhistory/{id}:
+    get:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentUserHistory'
+          description: ''
+    patch:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentUserHistory'
+          description: ''
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentUserHistory'
+          description: ''
+  /folderchildren:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/FolderChildren'
+                type: array
+          description: ''
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FolderChildren'
+          description: ''
+  /folderchildren/{id}:
+    get:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FolderChildren'
+          description: ''
+    patch:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FolderChildren'
+          description: ''
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FolderChildren'
+          description: ''
+  /folders:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Folders'
+                type: array
+          description: ''
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Folders'
+          description: ''
+  /folders/{id}:
+    get:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Folders'
+          description: ''
+    patch:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Folders'
+          description: ''
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Folders'
+          description: ''
+  /librarycheckedoutdocuments:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/LibraryCheckedOutDocuments'
+                type: array
+          description: ''
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LibraryCheckedOutDocuments'
+          description: ''
+  /librarycheckedoutdocuments/{id}:
+    get:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LibraryCheckedOutDocuments'
+          description: ''
+    patch:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LibraryCheckedOutDocuments'
+          description: ''
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LibraryCheckedOutDocuments'
+          description: ''
+  /workspaces:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Workspaces'
+                type: array
+          description: ''
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspaces'
+          description: ''
+  /workspaces/{id}:
+    get:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspaces'
+          description: ''
+    patch:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspaces'
+          description: ''
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspaces'
+          description: ''
