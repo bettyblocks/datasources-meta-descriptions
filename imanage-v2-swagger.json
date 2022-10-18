@@ -975,7 +975,7 @@
       "Documents": {
         "properties": {
           "id": {
-            "type": "string"
+            "type": "integer"
           },
           "name": {
             "type": "string"
@@ -1117,7 +1117,7 @@
       "DocumentHistory": {
         "properties": {
           "id": {
-            "type": "string"
+            "type": "integer"
           },
           "application_name": {
             "type": "string"
@@ -1164,7 +1164,7 @@
       "DocumentUserHistory": {
         "properties": {
           "id": {
-            "type": "string"
+            "type": "integer"
           },
           "full_name": {
             "type": "string"
@@ -1180,7 +1180,7 @@
       "Folders": {
         "properties": {
           "id": {
-            "type": "string"
+            "type": "integer"
           },
           "name": {
             "type": "string"
@@ -1245,7 +1245,7 @@
       "FolderChildren": {
         "properties": {
           "id": {
-            "type": "string"
+            "type": "integer"
           },
           "name": {
             "type": "string"
@@ -1310,7 +1310,7 @@
       "Workspaces": {
         "properties": {
           "id": {
-            "type": "string"
+            "type": "integer"
           },
           "name": {
             "type": "string"

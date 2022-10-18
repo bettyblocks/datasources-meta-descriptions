@@ -28,7 +28,7 @@ components:
         has_journal:
           type: boolean
         id:
-          type: string
+          type: integer
         location:
           type: string
         pages_printed:
@@ -50,7 +50,7 @@ components:
         full_name:
           type: string
         id:
-          type: string
+          type: integer
     Documents:
       properties:
         author:
@@ -91,7 +91,7 @@ components:
           format: date-time
           type: string
         id:
-          type: string
+          type: integer
         is_checked_out:
           type: boolean
         is_declared:
@@ -154,7 +154,7 @@ components:
         has_subfolders:
           type: boolean
         id:
-          type: string
+          type: integer
         inherited_default_security:
           type: string
         is_container_saved_search:
@@ -197,7 +197,7 @@ components:
         has_subfolders:
           type: boolean
         id:
-          type: string
+          type: integer
         inherited_default_security:
           type: string
         is_container_saved_search:
@@ -243,7 +243,7 @@ components:
         has_subfolders:
           type: boolean
         id:
-          type: string
+          type: integer
         is_declared:
           type: boolean
         is_external:
