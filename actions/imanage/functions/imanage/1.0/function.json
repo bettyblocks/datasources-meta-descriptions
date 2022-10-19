@@ -1,0 +1,112 @@
+{
+  "description": "Description",
+  "label": "Imanage",
+  "category": "Misc",
+  "icon": "CreateIcon",
+  "options": [
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "name",
+      "label": "Name",
+      "info": "name",
+      "advanced": true,
+      "configuration": {
+        "placeholder": "model"
+      }
+    },
+    {
+      "meta": {
+        "type": "Object"
+      },
+      "name": "params",
+      "label": "Params",
+      "info": "params",
+      "advanced": true
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "customerId",
+      "label": "Customer Id",
+      "info": "Customer Id",
+      "advanced": true,
+      "configuration": {
+        "placeholder": "1234"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "libraryName",
+      "label": "Library Name",
+      "info": "Library Name",
+      "advanced": true,
+      "configuration": {
+        "placeholder": "Dev"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "workspaceId",
+      "label": "Workspace ID",
+      "info": "The workspace id in the format Dev!01",
+      "advanced": true,
+      "configuration": {
+        "placeholder": "Dev!01"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "folderId",
+      "label": "Folder ID",
+      "info": "The folder id in the format Dev!01",
+      "advanced": true,
+      "configuration": {
+        "placeholder": "Dev!01"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "documentId",
+      "label": "Document ID",
+      "info": "The document id in the format Dev!01",
+      "advanced": true,
+      "configuration": {
+        "placeholder": "Dev!01"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "authToken",
+      "label": "authToken",
+      "info": "authToken",
+      "advanced": true,
+      "configuration": {
+        "placeholder": "token"
+      }
+    },
+    {
+      "name": "result",
+      "label": "Result",
+      "meta": {
+        "type": "Output",
+        "output": {
+          "type": "Text"
+        }
+      }
+    }
+  ],
+  "yields": "NONE"
+}

@@ -1,0 +1,63 @@
+{
+  "description": "Description",
+  "label": "Imanage Login",
+  "category": "Misc",
+  "icon": "CreateIcon",
+  "options": [
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "email",
+      "label": "Email",
+      "info": "email",
+      "configuration": {
+        "placeholder": "admin@example.com"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "password",
+      "label": "Password",
+      "info": "Password",
+      "configuration": {
+        "placeholder": "supersecret"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "client_id",
+      "label": "Client Id",
+      "info": "Client Id",
+      "configuration": {
+        "placeholder": "supersecret"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "client_secret",
+      "label": "Client Secret",
+      "info": "Client Secret",
+      "configuration": {
+        "placeholder": "supersecret"
+      }
+    },
+    {
+      "name": "token",
+      "label": "Token",
+      "meta": {
+        "type": "Output",
+        "output": {
+          "type": "Text"
+        }
+      }
+    }
+  ],
+  "yields": "NONE"
+}
