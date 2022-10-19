@@ -1,8 +1,10 @@
 import lodash from "lodash";
 
+const BASEURL = "https://cloudimanage.com/work/api/v2/customers"
+
 const MODEL_LOOKUP = {
     getAllDocuments: {
-        url: "https://cloudimanage.com/work/api/v2/customers/{customerId}/documents",
+        url: `${BASEURL}/{customerId}/documents`,
         method: "GET",
         processResponse: (respose) => {
             return respose.data.results
@@ -15,7 +17,7 @@ const MODEL_LOOKUP = {
         }
     },
     getAllWorkspaces: {
-        url: "https://cloudimanage.com/work/api/v2/customers/{customerId}/workspaces",
+        url: `${BASEURL}/{customerId}/workspaces`,
         method: "GET",
         processResponse: (respose) => {
             return respose.data.results
@@ -28,7 +30,7 @@ const MODEL_LOOKUP = {
         }
     },
     getAllDocumentNVP: {
-        url: "https://cloudimanage.com/work/api/v2/customers/{customerId}/libraries/{libraryName}/documents/{documentId}/name-value-pairs",
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}/name-value-pairs`,
         method: "GET",
         processResponse: (respose) => {
             return respose.data
@@ -41,7 +43,7 @@ const MODEL_LOOKUP = {
         }
     },
     getAllFolders: {
-        url: "https://cloudimanage.com/work/api/v2/customers/{customerId}/folders",
+        url: `${BASEURL}/{customerId}/folders`,
         method: "GET",
         processResponse: (respose) => {
             return respose.data
@@ -54,7 +56,7 @@ const MODEL_LOOKUP = {
         }
     },
     getAllFolderChildren: {
-        url: "https://cloudimanage.com/work/api/v2/customers/{customerId}/libraries/{libraryName}/folders/{folderId}/children",
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/folders/{folderId}/children`,
         method: "GET",
         processResponse: (respose) => {
             return respose.data
@@ -67,7 +69,7 @@ const MODEL_LOOKUP = {
         }
     },
     getAllDocumentHistory: {
-        url: "https://cloudimanage.com/work/api/v2/customers/{customerId}/libraries/{libraryName}/documents/{documentId}/history",
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}/history`,
         method: "GET",
         processResponse: (respose) => {
             return respose.data
@@ -80,7 +82,7 @@ const MODEL_LOOKUP = {
         }
     },
     getAllDocumentUserHistory: {
-        url: "https://cloudimanage.com/work/api/v2/customers/{customerId}/libraries/{libraryName}/documents/{documentId}/history/users",
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}/history/users`,
         method: "GET",
         processResponse: (respose) => {
             return respose.data
@@ -93,7 +95,7 @@ const MODEL_LOOKUP = {
         }
     },
     getAllLibraryCheckedOutDocuments: {
-        url: "https://cloudimanage.com/work/api/v2/customers/{customerId}/libraries/{libraryName}/documents/checkout",
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/checkout`,
         method: "GET",
         processResponse: (respose) => {
             return respose.data
@@ -106,7 +108,7 @@ const MODEL_LOOKUP = {
         }
     },
     getDocument: {
-        url: "https://cloudimanage.com/work/api/v2/customers/{customerId}/libraries/{libraryName}/documents/{documentId}",
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}`,
         method: "GET",
         processResponse: (respose) => {
             return [respose.data]
@@ -116,7 +118,7 @@ const MODEL_LOOKUP = {
         }
     },
     getWorkspace: {
-        url: "https://cloudimanage.com/work/api/v2/customers/{customerId}/libraries/{libraryName}/workspaces/{workspaceId}",
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspaces/{workspaceId}`,
         method: "GET",
         processResponse: (respose) => {
             return [respose.data]
@@ -126,7 +128,7 @@ const MODEL_LOOKUP = {
         }
     },
     getFolder: {
-        url: "https://cloudimanage.com/work/api/v2/customers/{customerId}/libraries/{libraryName}/folders/{folderId}",
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/folders/{folderId}`,
         method: "GET",
         processResponse: (respose) => {
             return [respose.data]
@@ -136,7 +138,7 @@ const MODEL_LOOKUP = {
         }
     },
     updateDocument: {
-        url: "https://cloudimanage.com/work/api/v2/customers/{customerId}/libraries/{libraryName}/documents/{documentId}",
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}`,
         method: "PATCH",
         processResponse: (respose) => {
             return [respose.data]
@@ -193,7 +195,7 @@ const mapKeys = (key) => {
   }
 
 const imanage = async ({name, params, customerId, libraryName, workspaceId, folderId, documentId, authToken}) => {
-    console.log({params: params})
+    //console.log({params: params})
     const requestedFields = typeof(params) == "undefined" ? ["all"] : params.select || ["all"];
     const MODEL_RESOURCE = MODEL_LOOKUP[name]
     const url = MODEL_RESOURCE.url
@@ -204,9 +206,9 @@ const imanage = async ({name, params, customerId, libraryName, workspaceId, fold
         .replace("{workspaceId}", workspaceId)
 
     let response = await fetchData(url, MODEL_RESOURCE.method, authToken);
-    let data = MODEL_RESOURCE.processResponse(response)
-
-    if (data) {
+    
+    if (response.data) {
+        let data = MODEL_RESOURCE.processResponse(response)
         let results = mapResults(data, requestedFields, libraryName)
 
         return {

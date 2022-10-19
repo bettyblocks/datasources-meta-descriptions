@@ -128,5 +128,11 @@ const fetch = async (url, options) => {
     }
   }
 
-  throw Error("fetch mock not set");
+  return {
+    ok: true,
+    status: 200,
+    json: () => {
+        return {}
+    }
+  }
 }
