@@ -3,7 +3,7 @@ import urlSearchParams from "../../utils/url-search-params"
 const AUTHURL = "https://cloudimanage.com/auth/oauth2/token"
 
 const imanageLogin = async ({email, password, client_id, client_secret}) => {
-    const formData = new urlSearchParams({
+    const loginData = new urlSearchParams({
         username: email,
         password,
         client_id,
@@ -13,7 +13,7 @@ const imanageLogin = async ({email, password, client_id, client_secret}) => {
 
     return await fetch(AUTHURL, {
         method: "post",
-        body: formData.toString(),
+        body: loginData.toString(),
         headers: { "Content-Type": "application/x-www-form-urlencoded"}
     })
     .then(response => {

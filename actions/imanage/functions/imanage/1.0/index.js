@@ -146,7 +146,58 @@ const MODEL_LOOKUP = {
         returnFormat: (results) => {
             return results
         }
+    },
+    updateWorkspace: {
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspace/{workspaceId}`,
+        method: "PATCH",
+        processResponse: (respose) => {
+            return [respose.data]
+        },
+        returnFormat: (results) => {
+            return results
+        }
+    },
+    updateFolder: {
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/folder/{folderId}`,
+        method: "PATCH",
+        processResponse: (respose) => {
+            return [respose.data]
+        },
+        returnFormat: (results) => {
+            return results
+        }
+    },
+    createFolder: {
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspaces/{workspaceId}/folders`,
+        method: "POST",
+        processResponse: (respose) => {
+            return [respose.data]
+        },
+        returnFormat: (results) => {
+            return results
+        }
+    },
+    createSubFolder: {
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/folders/{folderId}/subfolders`,
+        method: "POST",
+        processResponse: (respose) => {
+            return [respose.data]
+        },
+        returnFormat: (results) => {
+            return results
+        }
+    },
+    createWorkspace: {
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspaces`,
+        method: "POST",
+        processResponse: (respose) => {
+            return [respose.data]
+        },
+        returnFormat: (results) => {
+            return results
+        }
     }
+
 }
 
 const mapKeys = (key) => {
@@ -187,7 +238,7 @@ const mapKeys = (key) => {
   const fetchData = async (url, method, authToken, data={}) => {
     let response = await fetch(url, {
         method: method,
-        data: data,
+        body: JSON.stringify(data),
         headers: { "Content-Type": "application/json", "X-Auth-Token": authToken }
     });
 
@@ -195,8 +246,8 @@ const mapKeys = (key) => {
   }
 
 const imanage = async ({name, params, customerId, libraryName, workspaceId, folderId, documentId, authToken}) => {
-    //console.log({params: params})
     const requestedFields = typeof(params) == "undefined" ? ["all"] : params.select || ["all"];
+    const requestData = typeof(params) == "undefined" ? {} : params.input || {};
     const MODEL_RESOURCE = MODEL_LOOKUP[name]
     const url = MODEL_RESOURCE.url
         .replace("{customerId}", customerId)
@@ -205,7 +256,7 @@ const imanage = async ({name, params, customerId, libraryName, workspaceId, fold
         .replace("{folderId}", folderId)
         .replace("{workspaceId}", workspaceId)
 
-    let response = await fetchData(url, MODEL_RESOURCE.method, authToken);
+    let response = await fetchData(url, MODEL_RESOURCE.method, authToken, requestData);
     
     if (response.data) {
         let data = MODEL_RESOURCE.processResponse(response)
