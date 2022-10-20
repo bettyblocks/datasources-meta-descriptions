@@ -191,6 +191,36 @@ const MODEL_LOOKUP = {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspaces`,
         method: "POST",
         processResponse: (respose) => {
+            return [respose]
+        },
+        returnFormat: (results) => {
+            return results
+        }
+    },
+    deleteDocument: {
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}`,
+        method: "DELETE",
+        processResponse: (respose) => {
+            return [respose.data]
+        },
+        returnFormat: (results) => {
+            return results
+        }
+    },
+    deleteFolder: {
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/folders/{folderId}`,
+        method: "DELETE",
+        processResponse: (respose) => {
+            return [respose.data]
+        },
+        returnFormat: (results) => {
+            return results
+        }
+    },
+    deleteWorkspace: {
+        url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspaces/{workspaceId}`,
+        method: "DELETE",
+        processResponse: (respose) => {
             return [respose.data]
         },
         returnFormat: (results) => {
@@ -265,9 +295,15 @@ const imanage = async ({name, params, customerId, libraryName, workspaceId, fold
         return {
             result: MODEL_RESOURCE.returnFormat(results)
         }
-    } else {
+    }
+    
+    if (response.error) {
         console.log("Didn't find any data")
-        throw Error(`${JSON.stringify(response)}`);
+        throw Error(`${JSON.stringify(response.error)}`);
+    }
+
+    return {
+        result: {}
     }
 }
 

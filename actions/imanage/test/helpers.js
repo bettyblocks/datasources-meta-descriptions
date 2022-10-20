@@ -212,6 +212,16 @@ const fetch = async (url, options) => {
     }
   }
 
+  if (url === "https://cloudimanage.com/work/api/v2/customers/0000/libraries/Dev/documents/Dev!14.1" && options.method === 'DELETE') {
+    return {
+      ok: true,
+      status: 200,
+      json: () => {
+          return {}
+        }
+    }
+  }
+
   return {
     ok: true,
     status: 200,
