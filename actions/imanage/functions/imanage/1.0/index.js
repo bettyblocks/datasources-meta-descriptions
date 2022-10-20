@@ -286,7 +286,9 @@ const imanage = async ({name, params, customerId, libraryName, workspaceId, fold
     const MODEL_RESOURCE = MODEL_LOOKUP[name]
 
     if (MODEL_RESOURCE == undefined) {
-        throw Error(`${name} is not implemented`)
+        let not_implement = `${name} is not implemented`
+        console.error(not_implement)
+        throw Error(not_implement)
     }
 
     const url = MODEL_RESOURCE.url
@@ -308,6 +310,7 @@ const imanage = async ({name, params, customerId, libraryName, workspaceId, fold
     }
     
     if (response.error) {
+        console.error(response.error)
         throw Error(`${JSON.stringify(response.error)}`);
     }
 
