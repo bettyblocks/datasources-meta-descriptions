@@ -1,6 +1,6 @@
 test("imanage getAllDocuments", async () => {
     const output = await $app["imanage 1.0"]({
-        name: "getAllDocuments",
+        name: "allDocuments",
         params: {},
         customerId: "0000",
         libraryName: "Dev",
@@ -60,7 +60,7 @@ test("imanage getAllDocuments", async () => {
 
 test("imanage getAllDocuments only return id", async () => {
     const output = await $app["imanage 1.0"]({
-        name: "getAllDocuments",
+        name: "allDocuments",
         params: {select: ["id"]},
         customerId: "0000",
         libraryName: "Dev",

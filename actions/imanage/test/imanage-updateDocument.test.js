@@ -1,6 +1,6 @@
 test("imanage updateDocuments", async () => {
     const output = await $app["imanage 1.0"]({
-        name: "updateDocument",
+        name: "updateDocuments",
         params: {select: ["id", "name"], input: {"name": "test-updated"}},
         customerId: "0000",
         libraryName: "Dev",

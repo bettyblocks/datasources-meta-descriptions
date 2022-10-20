@@ -3,7 +3,7 @@ import lodash from "lodash";
 const BASEURL = "https://cloudimanage.com/work/api/v2/customers"
 
 const MODEL_LOOKUP = {
-    getAllDocuments: {
+    allDocuments: {
         url: `${BASEURL}/{customerId}/documents`,
         method: "GET",
         processResponse: (respose) => {
@@ -16,7 +16,7 @@ const MODEL_LOOKUP = {
             }
         }
     },
-    getAllWorkspaces: {
+    allWorkspaces: {
         url: `${BASEURL}/{customerId}/workspaces`,
         method: "GET",
         processResponse: (respose) => {
@@ -29,7 +29,7 @@ const MODEL_LOOKUP = {
             }
         }
     },
-    getAllDocumentNVP: {
+    allDocumentNVP: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}/name-value-pairs`,
         method: "GET",
         processResponse: (respose) => {
@@ -42,7 +42,7 @@ const MODEL_LOOKUP = {
             }
         }
     },
-    getAllFolders: {
+    allFolders: {
         url: `${BASEURL}/{customerId}/folders`,
         method: "GET",
         processResponse: (respose) => {
@@ -55,7 +55,7 @@ const MODEL_LOOKUP = {
             }
         }
     },
-    getAllFolderChildren: {
+    allFolderChildren: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/folders/{folderId}/children`,
         method: "GET",
         processResponse: (respose) => {
@@ -68,7 +68,7 @@ const MODEL_LOOKUP = {
             }
         }
     },
-    getAllDocumentHistory: {
+    allDocumentHistory: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}/history`,
         method: "GET",
         processResponse: (respose) => {
@@ -81,7 +81,7 @@ const MODEL_LOOKUP = {
             }
         }
     },
-    getAllDocumentUserHistory: {
+    allDocumentUserHistory: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}/history/users`,
         method: "GET",
         processResponse: (respose) => {
@@ -94,7 +94,7 @@ const MODEL_LOOKUP = {
             }
         }
     },
-    getAllLibraryCheckedOutDocuments: {
+    allLibraryCheckedOutDocuments: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/checkout`,
         method: "GET",
         processResponse: (respose) => {
@@ -107,7 +107,7 @@ const MODEL_LOOKUP = {
             }
         }
     },
-    getDocument: {
+    oneDocuments: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}`,
         method: "GET",
         processResponse: (respose) => {
@@ -117,7 +117,7 @@ const MODEL_LOOKUP = {
             return results
         }
     },
-    getWorkspace: {
+    oneWorkspaces: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspaces/{workspaceId}`,
         method: "GET",
         processResponse: (respose) => {
@@ -127,7 +127,7 @@ const MODEL_LOOKUP = {
             return results
         }
     },
-    getFolder: {
+    oneFolders: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/folders/{folderId}`,
         method: "GET",
         processResponse: (respose) => {
@@ -137,7 +137,7 @@ const MODEL_LOOKUP = {
             return results
         }
     },
-    updateDocument: {
+    updateDocuments: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}`,
         method: "PATCH",
         processResponse: (respose) => {
@@ -147,7 +147,7 @@ const MODEL_LOOKUP = {
             return results
         }
     },
-    updateWorkspace: {
+    updateWorkspaces: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspace/{workspaceId}`,
         method: "PATCH",
         processResponse: (respose) => {
@@ -157,7 +157,7 @@ const MODEL_LOOKUP = {
             return results
         }
     },
-    updateFolder: {
+    updateFolders: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/folder/{folderId}`,
         method: "PATCH",
         processResponse: (respose) => {
@@ -167,7 +167,7 @@ const MODEL_LOOKUP = {
             return results
         }
     },
-    createFolder: {
+    createFolders: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspaces/{workspaceId}/folders`,
         method: "POST",
         processResponse: (respose) => {
@@ -177,7 +177,7 @@ const MODEL_LOOKUP = {
             return results
         }
     },
-    createSubFolder: {
+    createSubFolders: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/folders/{folderId}/subfolders`,
         method: "POST",
         processResponse: (respose) => {
@@ -187,7 +187,7 @@ const MODEL_LOOKUP = {
             return results
         }
     },
-    createWorkspace: {
+    createWorkspaces: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspaces`,
         method: "POST",
         processResponse: (respose) => {
@@ -197,7 +197,7 @@ const MODEL_LOOKUP = {
             return results
         }
     },
-    deleteDocument: {
+    deleteDocuments: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}`,
         method: "DELETE",
         processResponse: (respose) => {
@@ -207,7 +207,7 @@ const MODEL_LOOKUP = {
             return results
         }
     },
-    deleteFolder: {
+    deleteFolders: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/folders/{folderId}`,
         method: "DELETE",
         processResponse: (respose) => {
@@ -217,7 +217,7 @@ const MODEL_LOOKUP = {
             return results
         }
     },
-    deleteWorkspace: {
+    deleteWorkspaces: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspaces/{workspaceId}`,
         method: "DELETE",
         processResponse: (respose) => {
@@ -265,20 +265,30 @@ const mapKeys = (key) => {
     });
   };
 
-  const fetchData = async (url, method, authToken, data={}) => {
-    let response = await fetch(url, {
+  const fetchData = async (url, method, authToken, body) => {
+    let request = {
         method: method,
-        body: JSON.stringify(data),
         headers: { "Content-Type": "application/json", "X-Auth-Token": authToken }
-    });
+    }
+    
+    if (method != 'GET') {
+        request['body'] = body
+    }
+
+    let response = await fetch(url, request);
 
     return response.json();
   }
 
 const imanage = async ({name, params, customerId, libraryName, workspaceId, folderId, documentId, authToken}) => {
     const requestedFields = typeof(params) == "undefined" ? ["all"] : params.select || ["all"];
-    const requestData = typeof(params) == "undefined" ? {} : params.input || {};
+    const requestData = typeof(params) == "undefined" ? {} : JSON.stringify(params.input) || {};
     const MODEL_RESOURCE = MODEL_LOOKUP[name]
+
+    if (MODEL_RESOURCE == undefined) {
+        throw Error(`${name} is not implemented`)
+    }
+
     const url = MODEL_RESOURCE.url
         .replace("{customerId}", customerId)
         .replace("{libraryName}", libraryName)
@@ -298,7 +308,6 @@ const imanage = async ({name, params, customerId, libraryName, workspaceId, fold
     }
     
     if (response.error) {
-        console.log("Didn't find any data")
         throw Error(`${JSON.stringify(response.error)}`);
     }
 

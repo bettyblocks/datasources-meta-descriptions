@@ -1,6 +1,6 @@
 test("imanage createFolder", async () => {
     const output = await $app["imanage 1.0"]({
-        name: "createFolder",
+        name: "createFolders",
         params: {select: ["id"], input: {
             "name": "Demo Folder",
             "description" : "Folder Created For Demo Purposes",

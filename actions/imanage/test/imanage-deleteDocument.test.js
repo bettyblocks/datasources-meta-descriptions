@@ -1,6 +1,6 @@
 test("imanage deleteDocument", async () => {
     const output = await $app["imanage 1.0"]({
-        name: "deleteDocument",
+        name: "deleteDocuments",
         params: {},
         customerId: "0000",
         libraryName: "Dev",
