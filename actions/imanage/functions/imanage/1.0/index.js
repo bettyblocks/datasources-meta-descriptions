@@ -2,230 +2,139 @@ import lodash from "lodash";
 
 const BASEURL = "https://cloudimanage.com/work/api/v2/customers"
 
+const responseResultFormatterNestedResult = {
+    processResponse: (respose) => {
+        return respose.data.results
+    },
+    returnFormat: (results) => {
+        return {
+            results: results,
+            totalCount: results.length, 
+        }
+    }
+}
+
+const responseResultFormatterNoNestedResult = {
+    processResponse: (respose) => {
+        return respose.data
+    },
+    returnFormat: (results) => {
+        return {
+            results: results,
+            totalCount: results.length, 
+        }
+    }
+}
+
+const responseResultFormatter = {
+    processResponse: (respose) => {
+        return [respose.data]
+    },
+    returnFormat: (results) => {
+        return results
+    }
+}
+
 const MODEL_LOOKUP = {
     allDocuments: {
         url: `${BASEURL}/{customerId}/documents`,
         method: "GET",
-        processResponse: (respose) => {
-            return respose.data.results
-        },
-        returnFormat: (results) => {
-            return {
-                results: results,
-                totalCount: results.length, 
-            }
-        }
+        ...responseResultFormatterNestedResult
     },
     allWorkspaces: {
         url: `${BASEURL}/{customerId}/workspaces`,
         method: "GET",
-        processResponse: (respose) => {
-            return respose.data.results
-        },
-        returnFormat: (results) => {
-            return {
-                results: results,
-                totalCount: results.length, 
-            }
-        }
+        ...responseResultFormatterNestedResult
     },
     allDocumentNVP: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}/name-value-pairs`,
         method: "GET",
-        processResponse: (respose) => {
-            return respose.data
-        },
-        returnFormat: (results) => {
-            return {
-                results: results,
-                totalCount: results.length, 
-            }
-        }
+        
     },
     allFolders: {
         url: `${BASEURL}/{customerId}/folders`,
         method: "GET",
-        processResponse: (respose) => {
-            return respose.data
-        },
-        returnFormat: (results) => {
-            return {
-                results: results,
-                totalCount: results.length, 
-            }
-        }
+        ...responseResultFormatterNoNestedResult
     },
     allFolderChildren: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/folders/{folderId}/children`,
         method: "GET",
-        processResponse: (respose) => {
-            return respose.data
-        },
-        returnFormat: (results) => {
-            return {
-                results: results,
-                totalCount: results.length, 
-            }
-        }
+        ...responseResultFormatterNoNestedResult
     },
     allDocumentHistory: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}/history`,
         method: "GET",
-        processResponse: (respose) => {
-            return respose.data
-        },
-        returnFormat: (results) => {
-            return {
-                results: results,
-                totalCount: results.length, 
-            }
-        }
+        ...responseResultFormatterNoNestedResult
     },
     allDocumentUserHistory: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}/history/users`,
         method: "GET",
-        processResponse: (respose) => {
-            return respose.data
-        },
-        returnFormat: (results) => {
-            return {
-                results: results,
-                totalCount: results.length, 
-            }
-        }
+        ...responseResultFormatterNoNestedResult
     },
     allLibraryCheckedOutDocuments: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/checkout`,
         method: "GET",
-        processResponse: (respose) => {
-            return respose.data
-        },
-        returnFormat: (results) => {
-            return {
-                results: results,
-                totalCount: results.length, 
-            }
-        }
+        ...responseResultFormatterNoNestedResult
     },
     oneDocuments: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}`,
         method: "GET",
-        processResponse: (respose) => {
-            return [respose.data]
-        },
-        returnFormat: (results) => {
-            return results
-        }
+        ...responseResultFormatter
     },
     oneWorkspaces: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspaces/{workspaceId}`,
         method: "GET",
-        processResponse: (respose) => {
-            return [respose.data]
-        },
-        returnFormat: (results) => {
-            return results
-        }
+        ...responseResultFormatter
     },
     oneFolders: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/folders/{folderId}`,
         method: "GET",
-        processResponse: (respose) => {
-            return [respose.data]
-        },
-        returnFormat: (results) => {
-            return results
-        }
+        ...responseResultFormatter
     },
     updateDocuments: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}`,
         method: "PATCH",
-        processResponse: (respose) => {
-            return [respose.data]
-        },
-        returnFormat: (results) => {
-            return results
-        }
+        ...responseResultFormatter
     },
     updateWorkspaces: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspace/{workspaceId}`,
         method: "PATCH",
-        processResponse: (respose) => {
-            return [respose.data]
-        },
-        returnFormat: (results) => {
-            return results
-        }
+        ...responseResultFormatter
     },
     updateFolders: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/folder/{folderId}`,
         method: "PATCH",
-        processResponse: (respose) => {
-            return [respose.data]
-        },
-        returnFormat: (results) => {
-            return results
-        }
+        ...responseResultFormatter
     },
     createFolders: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspaces/{workspaceId}/folders`,
         method: "POST",
-        processResponse: (respose) => {
-            return [respose.data]
-        },
-        returnFormat: (results) => {
-            return results
-        }
+        ...responseResultFormatter
     },
     createSubFolders: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/folders/{folderId}/subfolders`,
         method: "POST",
-        processResponse: (respose) => {
-            return [respose.data]
-        },
-        returnFormat: (results) => {
-            return results
-        }
+        ...responseResultFormatter
     },
     createWorkspaces: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspaces`,
         method: "POST",
-        processResponse: (respose) => {
-            return [respose]
-        },
-        returnFormat: (results) => {
-            return results
-        }
+        ...responseResultFormatter
     },
     deleteDocuments: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/documents/{documentId}`,
         method: "DELETE",
-        processResponse: (respose) => {
-            return [respose.data]
-        },
-        returnFormat: (results) => {
-            return results
-        }
+        ...responseResultFormatter
     },
     deleteFolders: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/folders/{folderId}`,
         method: "DELETE",
-        processResponse: (respose) => {
-            return [respose.data]
-        },
-        returnFormat: (results) => {
-            return results
-        }
+        ...responseResultFormatter
     },
     deleteWorkspaces: {
         url: `${BASEURL}/{customerId}/libraries/{libraryName}/workspaces/{workspaceId}`,
         method: "DELETE",
-        processResponse: (respose) => {
-            return [respose.data]
-        },
-        returnFormat: (results) => {
-            return results
-        }
+        ...responseResultFormatter
     }
 
 }
