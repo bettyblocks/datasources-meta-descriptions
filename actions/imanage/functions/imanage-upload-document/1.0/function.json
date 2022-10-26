@@ -20,6 +20,18 @@
       "meta": {
         "type": "Text"
       },
+      "name": "customerId",
+      "label": "Customer ID",
+      "info": "The customer id in the format Dev!01",
+      "advanced": true,
+      "configuration": {
+        "placeholder": "Dev!01"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
       "name": "documentId",
       "label": "Document ID",
       "info": "The document id in the format Dev!01",
