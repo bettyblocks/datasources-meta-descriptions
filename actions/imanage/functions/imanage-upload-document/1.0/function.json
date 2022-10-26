@@ -1,0 +1,79 @@
+{
+  "description": "Description",
+  "label": "Imanage Upload Document",
+  "category": "Misc",
+  "icon": "CreateIcon",
+  "options": [
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "documentName",
+      "label": "Document Name",
+      "info": "The document name",
+      "advanced": true,
+      "configuration": {
+        "placeholder": "Dev!01"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "customerId",
+      "label": "Customer ID",
+      "info": "The customer id in the format Dev!01",
+      "advanced": true,
+      "configuration": {
+        "placeholder": "Dev!01"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "documentId",
+      "label": "Document ID",
+      "info": "The document id in the format Dev!01",
+      "advanced": true,
+      "configuration": {
+        "placeholder": "Dev!01"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "authToken",
+      "label": "authToken",
+      "info": "authToken",
+      "advanced": true,
+      "configuration": {
+        "placeholder": "token"
+      }
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "file",
+      "label": "File",
+      "info": "",
+      "advanced": true,
+      "configuration": {
+        "placeholder": "Dev!01"
+      }
+    },
+    {
+      "name": "result",
+      "label": "Result",
+      "meta": {
+        "type": "Output",
+        "output": {
+          "type": "Text"
+        }
+      }
+    }
+  ],
+  "yields": "NONE"
+}
