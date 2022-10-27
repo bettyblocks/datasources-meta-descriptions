@@ -1,5 +1,10 @@
 {
   "swagger": "2.0",
+  "info": {
+    "version": "HighQ 5.7.4 app17a.sg1 t975 ",
+    "title": "HighQ Direct"
+  },
+  "basePath": "/your-instance/api",
   "tags": [
     { "name": "Site Resource APIs" },
     { "name": "System Reports APIs" },
@@ -311,7 +316,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "schema": { "$ref": "#/definitions/site" }
+            "schema": { "$ref": "#/definitions/sites" }
           },
           "400": {
             "description": "Problem with parsing XML or JSON object (Bad Request)"
@@ -10560,7 +10565,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "schema": { "$ref": "#/definitions/OrganisationDBO" }
+            "schema": { "$ref": "#/definitions/organisation" }
           },
           "400": {
             "description": "4xx Fail transaction(Client Side)",
@@ -10738,7 +10743,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "schema": { "$ref": "#/definitions/OrganisationDBO" }
+            "schema": { "$ref": "#/definitions/Organisations" }
           },
           "400": {
             "description": "4xx Fail transaction(Client Side)",
@@ -19783,7 +19788,7 @@
         "responses": {
           "200": {
             "description": "people details returned successfully",
-            "schema": { "$ref": "#/definitions/PersonDBO" }
+            "schema": { "$ref": "#/definitions/PeopleDBO" }
           },
           "400": { "description": "Problem with parameters" },
           "401": { "description": "Unauthorised" },
@@ -20972,6 +20977,8 @@
   "securityDefinitions": {
     "OAuth": {
       "type": "oauth2",
+      "authorizationUrl": "https://your-highq.example.com/instance/authorize.action",
+      "tokenUrl": "https://your-highq.example.com/instance/api/oauth2/token",
       "flow": "accessCode"
     }
   },
@@ -21425,7 +21432,9 @@
         "sitedescription": { "type": "string" },
         "enabledmodules": { "type": "string" },
         "sitefolderID": { "type": "string" },
+        "folder": { "$ref": "#/definitions/Folder" },
         "sitefolderpermission": { "type": "string" },
+        "module": { "$ref": "#/definitions/ModuleDBO" },
         "adminnote": { "type": "string" },
         "startdate": { "type": "string" },
         "enddate": { "type": "string" },
@@ -21435,19 +21444,25 @@
         "matterno": { "type": "string" },
         "landingpage": { "type": "string" },
         "link": { "type": "string" },
-        "sta.tus": { "type": "string" },
+        "status": { "type": "string" },
         "statusid": { "type": "integer", "format": "int32" },
         "size": { "type": "string" },
-        "billing.notes": { "type": "string" },
-        "billing.nextinvoicedate": { "type": "string" },
-        "billing.lastinvoicedate": { "type": "string" },
+        "rawsitesize": { "$ref": "#/definitions/RawSiteSize" },
+        "billingnotes": { "type": "string" },
+        "billingnextinvoicedate": { "type": "string" },
+        "billinglastinvoicedate": { "type": "string" },
         "filepagecount": { "type": "string" },
         "maxpagecount": { "type": "string" },
         "siteowner": { "$ref": "#/definitions/UserDBO" },
         "sitehttplink": { "type": "string" },
         "isSyncable": { "type": "integer", "format": "int32" },
+        "file": { "$ref": "#/definitions/FileModule" },
+        "categories": { "$ref": "#/definitions/Categories" },
+        "contactus": { "$ref": "#/definitions/ContactUS" },
         "enforceusergroups": { "type": "string" },
         "csvSiteCategory": { "type": "string" },
+        "biddersite": { "$ref": "#/definitions/BidderSiteDBO" },
+        "sitenametranslations": { "$ref": "#/definitions/translations" },
         "siteNameInDefaultLanguage": { "type": "string" },
         "visible": { "type": "integer", "format": "int32" },
         "siteLogoName": { "type": "string" },
@@ -21478,6 +21493,7 @@
         "nextLoginSiteHomePage": { "type": "integer", "format": "int32" },
         "applyDisplayContent": { "type": "integer", "format": "int32" },
         "displayContent": { "type": "string" },
+        "siteCategories": { "$ref": "#/definitions/categories" },
         "rssSecurity": { "type": "integer", "format": "int32" },
         "encryptedPassword": { "type": "integer", "format": "int32" },
         "availableIPRangeCSV": { "type": "string" },
@@ -21491,9 +21507,11 @@
         "templateType": { "type": "integer", "format": "int32" },
         "templateLicence": { "type": "integer", "format": "int32" },
         "openChannelAppID": { "type": "string" },
+        "siteRestrictionType": { "$ref": "#/definitions/SiteRestrictionType" },
         "itemid": { "type": "integer", "format": "int32" },
         "sitemetadatasheetid": { "type": "integer", "format": "int32" },
         "mysite": { "type": "boolean" },
+        "matternos": { "$ref": "#/definitions/MatterNumbers" },
         "lastaccesseddate": { "type": "string" },
         "enableDuplicateFileDetection": { "type": "boolean" },
         "duplicateFileDetectionLevel": { "type": "integer", "format": "int32" },
@@ -21558,13 +21576,9 @@
     "OrganisationDBO": {
       "type": "object",
       "properties": {
-        "name": { "type": "string" },
+        "orgname": { "type": "string" },
         "orgid": { "type": "integer", "format": "int32" },
-        "internal": { "type": "integer", "format": "int32" },
-        "status": { "type": "string" },
-        "noofusers": { "type": "integer", "format": "int32" },
-        "createddate": { "type": "string" },
-        "link": { "type": "string" }
+        "orgaddress": { "type": "string" }
       },
       "xml": { "name": "organisationdbo" }
     },
@@ -22125,7 +22139,7 @@
       "type": "object",
       "properties": {
         "emaillist": { "$ref": "#/definitions/EmailList" },
-        "sites": { "$ref": "#/definitions/site" },
+        "sites": { "$ref": "#/definitions/sites" },
         "groups": { "$ref": "#/definitions/groups" }
       },
       "xml": { "name": "sharewith" }
@@ -22199,7 +22213,7 @@
     "PeopleFilter": {
       "type": "object",
       "properties": {
-        "peoples": { "$ref": "#/definitions/PeopleDBO" },
+        "peoples": { "$ref": "#/definitions/Peoples" },
         "myorganisation": { "$ref": "#/definitions/DisplaynameValue" },
         "following": { "$ref": "#/definitions/DisplaynameValue" },
         "followers": { "$ref": "#/definitions/DisplaynameValue" },
@@ -24587,18 +24601,18 @@
         "folder": { "$ref": "#/definitions/Folder" },
         "templatefolderpermission": { "type": "string" },
         "adminnote": { "type": "string" },
-        "mod.ule": { "$ref": "#/definitions/ModuleDBO" },
+        "module": { "$ref": "#/definitions/ModuleDBO" },
         "enddate": { "type": "string" },
         "startdate": { "type": "string" },
-        "archive.ddate": { "type": "string" },
+        "archiveddate": { "type": "string" },
         "createddate": { "type": "string" },
         "landingpage": { "type": "string" },
-        "client.no": { "type": "string" },
+        "clientno": { "type": "string" },
         "status": { "type": "string" },
         "size": { "type": "string" },
         "matterno": { "type": "string" },
         "billingnotes": { "type": "string" },
-        "billi.ngnextinvoicedate": { "type": "string" },
+        "billingnextinvoicedate": { "type": "string" },
         "billinglastinvoicedate": { "type": "string" },
         "filepagecount": { "type": "string" },
         "link": { "type": "string" },
@@ -28239,13 +28253,11 @@
         "avatar": { "type": "string" },
         "userlink": { "type": "string" },
         "httplink": { "type": "string" },
-        "orgaddress": { "type": "string" },
-        "orgid": { "type": "integer", "format": "int32" },
-        "orgname": { "type": "string" },
-        "firstname": { "type": "string" },
-
-        "lastname": { "type": "string" },
-        "title": { "type": "string" }
+        "phone": { "type": "string" },
+        "mobile": { "type": "string" },
+        "department": { "type": "string" },
+        "username": { "$ref": "#/definitions/UserName" },
+        "organisation": { "$ref": "#/definitions/OrganisationDBO" }
       },
       "xml": { "name": "person" }
     },

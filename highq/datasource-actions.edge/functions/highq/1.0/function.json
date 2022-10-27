@@ -1,0 +1,52 @@
+{
+  "description": "Description",
+  "label": "Highq",
+  "category": "External",
+  "icon": {
+    "name": "CloudIcon",
+    "color": "Orange"
+  },
+  "options": [
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "apiVersion",
+      "label": "Api Version",
+      "info": "The base url of your api (without version)"
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "baseUrl",
+      "label": "Base URL",
+      "info": "The base url of your api (without version)"
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "authToken",
+      "label": "authToken",
+      "info": "authToken"
+    },
+    {
+      "meta": {
+        "type": "Text"
+      },
+      "name": "modelName",
+      "label": "Model name",
+      "info": "The name of your model"
+    },
+    {
+      "meta": {
+        "type": "Object"
+      },
+      "name": "params",
+      "label": "Params",
+      "info": "params"
+    }
+  ],
+  "yields": "NONE"
+}
