@@ -1,5 +1,9 @@
 {
   "swagger": "2.0",
+  "info": {
+    "version": "Betty Blocks public datasource block",
+    "title": "HighQ public data soure block"
+  },
   "tags": [
     { "name": "Site Resource APIs" },
     { "name": "System Reports APIs" },
@@ -20967,12 +20971,6 @@
           }
         }
       }
-    }
-  },
-  "securityDefinitions": {
-    "OAuth": {
-      "type": "oauth2",
-      "flow": "accessCode"
     }
   },
   "definitions": {
