@@ -1,0 +1,1378 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "test",
+    "description": "test",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/documents": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Documents"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Documents"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/documents/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Documents"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Documents"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Documents"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      }
+    },
+    "/documentactivityhistory": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DocumentActivityHistory"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentActivityHistory"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/documentactivityhistory/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentActivityHistory"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentActivityHistory"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentActivityHistory"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      }
+    },
+    "/documenthistory": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DocumentHistory"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentHistory"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/documenthistory/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentHistory"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentHistory"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentHistory"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      }
+    },
+    "/documentuserhistory": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DocumentUserHistory"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentUserHistory"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/documentuserhistory/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentUserHistory"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentUserHistory"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentUserHistory"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      }
+    },
+    "/folders": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Folders"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Folders"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/folders/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Folders"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Folders"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Folders"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      }
+    },
+    "/folderchildren": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FolderChildren"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FolderChildren"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/folderchildren/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FolderChildren"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FolderChildren"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FolderChildren"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      }
+    },
+    "/workspaces": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Workspaces"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Workspaces"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/workspaces/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Workspaces"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Workspaces"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Workspaces"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      }
+    },
+    "/librarycheckedoutdocuments": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LibraryCheckedOutDocuments"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LibraryCheckedOutDocuments"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/librarycheckedoutdocuments/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LibraryCheckedOutDocuments"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LibraryCheckedOutDocuments"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LibraryCheckedOutDocuments"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      }
+    },
+    "/documentnvp": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DocumentNVP"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentNVP"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/documentnvp/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentNVP"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentNVP"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      },
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentNVP"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Documents": {
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "author_description": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "checksum": {
+            "type": "string"
+          },
+          "class": {
+            "type": "string"
+          },
+          "class_description": {
+            "type": "string"
+          },
+          "content_type": {
+            "type": "string"
+          },
+          "create_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "create_profile_date": {
+            "type": "string"
+          },
+          "database": {
+            "type": "string"
+          },
+          "default_security": {
+            "type": "string"
+          },
+          "document_number": {
+            "type": "integer"
+          },
+          "edit_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "edit_profile_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "file_create_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "file_edit_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "is_checked_out": {
+            "type": "boolean"
+          },
+          "is_declared": {
+            "type": "boolean"
+          },
+          "is_external": {
+            "type": "boolean"
+          },
+          "is_external_as_normal": {
+            "type": "boolean"
+          },
+          "is_hipaa": {
+            "type": "boolean"
+          },
+          "is_in_use": {
+            "type": "boolean"
+          },
+          "is_restorable": {
+            "type": "boolean"
+          },
+          "iwl": {
+            "type": "string"
+          },
+          "last_user": {
+            "type": "string"
+          },
+          "last_user_description": {
+            "type": "string"
+          },
+          "operator_description": {
+            "type": "string"
+          },
+          "operation": {
+            "type": "string"
+          },
+          "retain_days": {
+            "type": "integer"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "subclass_description": {
+            "type": "string"
+          },
+          "extension": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "type_description": {
+            "type": "string"
+          },
+          "wopi_file_size_warning": {
+            "type": "boolean"
+          },
+          "workspace_id": {
+            "type": "string"
+          },
+          "workspace_name": {
+            "type": "string"
+          },
+          "wstype": {
+            "type": "string"
+          }
+        }
+      },
+      "DocumentActivityHistory": {
+        "properties": {
+          "alias": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "DocumentHistory": {
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "application_name": {
+            "type": "string"
+          },
+          "document_number": {
+            "type": "integer"
+          },
+          "duration": {
+            "type": "integer"
+          },
+          "location": {
+            "type": "string"
+          },
+          "pages_printed": {
+            "type": "integer"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "user_fullname": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "has_journal": {
+            "type": "boolean"
+          },
+          "comments": {
+            "type": "string"
+          },
+          "activity": {
+            "type": "string"
+          },
+          "activity_code": {
+            "type": "string"
+          },
+          "activity_date": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "DocumentUserHistory": {
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "full_name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "activity_count": {
+            "type": "integer"
+          }
+        }
+      },
+      "Folders": {
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "owner_description": {
+            "type": "string"
+          },
+          "database": {
+            "type": "string"
+          },
+          "default_security": {
+            "type": "string"
+          },
+          "edit_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "folder_type": {
+            "type": "string"
+          },
+          "has_documents": {
+            "type": "boolean"
+          },
+          "has_subfolders": {
+            "type": "boolean"
+          },
+          "inherited_default_security": {
+            "type": "string"
+          },
+          "is_container_saved_search": {
+            "type": "boolean"
+          },
+          "is_content_saved_search": {
+            "type": "boolean"
+          },
+          "is_external": {
+            "type": "boolean"
+          },
+          "is_external_as_normal": {
+            "type": "boolean"
+          },
+          "parent_id": {
+            "type": "string"
+          },
+          "view_type": {
+            "type": "string"
+          },
+          "workspace_id": {
+            "type": "string"
+          },
+          "workspace_name": {
+            "type": "string"
+          },
+          "wstype": {
+            "type": "string"
+          }
+        }
+      },
+      "FolderChildren": {
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "owner_description": {
+            "type": "string"
+          },
+          "database": {
+            "type": "string"
+          },
+          "default_security": {
+            "type": "string"
+          },
+          "edit_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "folder_type": {
+            "type": "string"
+          },
+          "has_documents": {
+            "type": "boolean"
+          },
+          "has_subfolders": {
+            "type": "boolean"
+          },
+          "inherited_default_security": {
+            "type": "string"
+          },
+          "is_container_saved_search": {
+            "type": "boolean"
+          },
+          "is_content_saved_search": {
+            "type": "boolean"
+          },
+          "is_external": {
+            "type": "boolean"
+          },
+          "is_external_as_normal": {
+            "type": "boolean"
+          },
+          "parent_id": {
+            "type": "string"
+          },
+          "view_type": {
+            "type": "string"
+          },
+          "workspace_id": {
+            "type": "string"
+          },
+          "workspace_name": {
+            "type": "string"
+          },
+          "wstype": {
+            "type": "string"
+          }
+        }
+      },
+      "Workspaces": {
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "owner_description": {
+            "type": "string"
+          },
+          "database": {
+            "type": "string"
+          },
+          "default_security": {
+            "type": "string"
+          },
+          "edit_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "is_external": {
+            "type": "boolean"
+          },
+          "is_external_as_normal": {
+            "type": "boolean"
+          },
+          "version": {
+            "type": "boolean"
+          },
+          "retain_days": {
+            "type": "integer"
+          },
+          "iwl": {
+            "type": "string"
+          },
+          "is_hipaa": {
+            "type": "boolean"
+          },
+          "is_declared": {
+            "type": "boolean"
+          },
+          "document_number": {
+            "type": "integer"
+          },
+          "create_profile_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "has_subfolders": {
+            "type": "boolean"
+          },
+          "wstype": {
+            "type": "string"
+          }
+        }
+      },
+      "LibraryCheckedOutDocuments": {
+        "properties": {}
+      },
+      "DocumentNVP": {
+        "properties": {}
+      }
+    }
+  }
+}
