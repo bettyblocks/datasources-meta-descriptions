@@ -10,11 +10,15 @@ const highq = async ({
   modelName,
   params,
 }) => {
-  const { method, path } = MODEL_LOOKUP[modelName];
+  const model = MODEL_LOOKUP[modelName];
+  if (!model) {
+    const message = "model name not yet configured";
+    console.error(message);
+    throw Error(message);
+  }
+  const { method, path } = model;
   const endpoint =
     baseUrl + interpolateUrl(path, { version: apiVersion, ...params });
-
-  console.debug({ endpoint });
 
   const response = await fetch(endpoint, {
     method,
@@ -23,15 +27,20 @@ const highq = async ({
       "Content-Type": "application/json",
       authorization: `Bearer ${authToken}`,
     },
-    body: JSON.stringify({ params }),
   })
     .then((response) => {
-      console.log({ response });
-      return response;
+      const { ok, status } = response ?? {};
+      if (!ok) {
+        const message = "Request failed with HTTP status: " + status;
+        console.error(message);
+        throw new Error(message);
+      }
+      return response.json();
     })
-    .catch((error) => console.log(error));
-
-  console.debug({ response });
+    .catch((error) => {
+      console.error(error);
+      return error;
+    });
 
   return response;
 };

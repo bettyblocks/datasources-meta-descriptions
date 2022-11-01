@@ -46,6 +46,16 @@
       "name": "params",
       "label": "Params",
       "info": "params"
+    },
+    {
+      "name": "result",
+      "label": "Result",
+      "meta": {
+        "type": "Output",
+        "output": {
+          "type": "Text"
+        }
+      }
     }
   ],
   "yields": "NONE"
