@@ -14,11 +14,11 @@
   },
   "servers": [
     {
-      "url": "https://relativity.com/api/v3"
+      "url": "https://frpadvisory-uk-current-sandbox.relativity.one"
     }
   ],
   "paths": {
-    "/documents": {
+    "/Relativity.REST/api/Relativity.ObjectManager/v1/workspace/1038633/object/queryslim": {
       "get": {
         "tags": [
           "documentobject"
