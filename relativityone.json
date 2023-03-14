@@ -80,7 +80,8 @@
             "type": "string"
           },
           "primaryDate": {
-            "type": "date"
+            "type": "string",
+            "format": "date"
           },
           "custodianName": {
             "type": "string"
