@@ -18,7 +18,7 @@
     }
   ],
   "paths": {
-    "/Relativity.REST/api/Relativity.ObjectManager/v1/workspace/1038633/object/queryslim": {
+    "/Relativity.REST/api/Relativity.ObjectManager/v1/workspace/1038633/object/query": {
       "get": {
         "tags": [
           "documentobject"
