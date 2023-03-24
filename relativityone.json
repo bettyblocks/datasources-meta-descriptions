@@ -69,22 +69,6 @@
           },
           "unifiedTitle": {
             "type": "string"
-          },
-          "recordType": {
-            "type": "string"
-          },
-          "emailFrom": {
-            "type": "string"
-          },
-          "emailTo": {
-            "type": "string"
-          },
-          "primaryDate": {
-            "type": "string",
-            "format": "date"
-          },
-          "custodianName": {
-            "type": "string"
           }
         },
         "xml": {
