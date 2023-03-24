@@ -60,14 +60,14 @@
       "DocumentObject": {
         "type": "object",
         "properties": {
-          "Artifact Id": {
+          "artifactId": {
             "type": "integer",
             "format": "int32"
           },
-          "Control Number": {
+          "controlNumber": {
             "type": "string"
           },
-          "Unified Title": {
+          "unifiedTitle": {
             "type": "string"
           }
         },
