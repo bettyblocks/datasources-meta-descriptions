@@ -67,9 +67,6 @@
           "controlNumber": {
             "type": "string"
           },
-           "banana": {
-            "type": "string"
-          },
           "unifiedTitle": {
             "type": "string"
           }
