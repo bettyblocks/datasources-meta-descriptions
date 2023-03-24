@@ -60,7 +60,7 @@
       "DocumentObject": {
         "type": "object",
         "properties": {
-          "documentId": {
+          "artifactId": {
             "type": "integer",
             "format": "int32"
           },
